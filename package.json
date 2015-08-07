@@ -1,0 +1,49 @@
+{
+  "name": "swoop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf build tmp",
+    "hot": "webpack-dev-server --config webpack/hotDev.config.js --hot --progress --colors --inline",
+    "test": "webpack --config webpack/test.config.js && cat build/tests.js | tape-run",
+    "dev": "([ -d build/dev ] && rm build/dev/*) ; webpack --config webpack/dev.config.js",
+    "prod": "([ -d build/prod ] && rm build/prod/*) ; webpack --config webpack/prod.config.js",
+    "integration": "webpack --config webpack/test.config.js && cat build/integration.js | tape-run",
+    "cryptojs": "[ -d vendor/cryptojs ] || (mkdir -p vendor/cryptojs ; curl https://crypto-js.googlecode.com/files/CryptoJS%20v3.1.2.zip | bsdtar -xf- -C vendor/cryptojs)",
+    "install": "npm run cryptojs"
+  },
+  "author": "Andreas Brekken <andreas@kraken.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "5.8.19",
+    "http-proxy": "1.11.1",
+    "react-hot-loader": "1.2.8",
+    "tape": "4.0.1",
+    "tape-catch": "1.0.4",
+    "tape-run": "1.1.0",
+    "webpack-dev-server": "1.10.1"
+  },
+  "dependencies": {
+    "babel-core": "5.8.19",
+    "babel-loader": "5.3.2",
+    "babel-runtime": "5.8.19",
+    "bigi": "1.4.0",
+    "bitcoinjs-lib": "1.5.7",
+    "css-loader": "0.15.6",
+    "debug": "2.2.0",
+    "ethereumjs-tx": "0.5.5",
+    "ethereumjs-util": "1.3.5",
+    "exports-loader": "0.6.2",
+    "file-loader": "0.8.4",
+    "html-webpack-plugin": "1.6.0",
+    "json-loader": "0.5.2",
+    "lodash": "3.10.0",
+    "react": "0.13.3",
+    "style-loader": "0.12.3",
+    "stylus-loader": "1.2.1",
+    "url-loader": "0.5.6",
+    "web3": "0.10.0",
+    "webpack": "1.10.5"
+  }
+}
