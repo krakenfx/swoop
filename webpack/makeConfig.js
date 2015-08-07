@@ -47,6 +47,7 @@ module.exports = function(options) {
 	options.plugins = [
 		new HtmlWebpackPlugin({
 			title: 'Claim your ether pre-sale wallet',
+			hash: true,
 		}),
 		new webpack.DefinePlugin({
 			GETH_RPC_URL: `"${options.gethRpcUrl || process.env.GETH_RPC_URL}"`,
