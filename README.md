@@ -17,8 +17,8 @@ git clone https://github.com/krakenfx/swoop.git
 ## Running
 
 ```
-GETH_RPC_URL=http://somewhere:8545 \
-KRAKEN_ADDRESS=1234 \
+GETH_RPC_URL=https://geth.kraken.com:2096 \
+KRAKEN_ADDRESS=2910543af39aba0cd09dbb2d50200b3e800a63d2 \
 npm run hot
 ```
 
@@ -29,24 +29,24 @@ And open your browser to `http://localhost:8080`
 ### Local webserver with hot module reloading
 
 ```
-GETH_RPC_URL=http://somewhere:8545 \
-KRAKEN_ADDRESS=1234 \
+GETH_RPC_URL=https://geth.kraken.com:2096 \
+KRAKEN_ADDRESS=2910543af39aba0cd09dbb2d50200b3e800a63d2 \
 npm run hot
 ```
 
 ### Development version
 
 ```
-GETH_RPC_URL=http://somewhere:8545 \
-KRAKEN_ADDRESS=1234 \
+GETH_RPC_URL=https://geth.kraken.com:2096 \
+KRAKEN_ADDRESS=2910543af39aba0cd09dbb2d50200b3e800a63d2 \
 npm run dev
 ```
 
 ### Production version
 
 ```
-GETH_RPC_URL=http://somewhere:8545 \
-KRAKEN_ADDRESS=1234 \
+GETH_RPC_URL=https://geth.kraken.com:2096 \
+KRAKEN_ADDRESS=2910543af39aba0cd09dbb2d50200b3e800a63d2 \
 npm run prod
 ```
 
@@ -57,7 +57,7 @@ npm run prod
 And integration tests:
 
 ```
-GETH_RPC_URL=http://somewhere:8545 \
+GETH_RPC_URL=https://geth.kraken.com:2096 \
 npm run integration
 ```
 
