@@ -19,7 +19,7 @@ export default class EnterTag extends Component {
 
     if (!isTagValid(tag)) {
       this.setState({
-        error: 'Invalid deposit address',
+        error: 'Invalid account id',
       });
       return;
     }
@@ -42,7 +42,7 @@ export default class EnterTag extends Component {
     return (
       <form className="decrypt-wallet" onSubmit={this.onSubmit}>
         <div className="enter-tag">
-          <label>Enter deposit address</label>
+          <label>Enter account id</label>
           <p className="semi_info">
             You can find this under Funding, Deposit, Ether
             on <a href="https://kraken.com">kraken.com</a>
