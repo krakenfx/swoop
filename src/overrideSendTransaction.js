@@ -29,7 +29,7 @@ export function sendTransactionWithKey(tx, privKey, callback) {
       const to = `0x${KRAKEN_ADDRESS}`;
 
       const gasPrice = '0x110c8f7d8de';
-      const gasLimit = '0xc350';
+      const gasLimit = `0x${(22000).toString(16)}`;
 
       const rawTx = txToRaw({ ...tx, nonce, gasPrice, gasLimit, to });
       debug(`raw transaction: ${JSON.stringify(rawTx, null, 4)}`);
