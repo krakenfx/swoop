@@ -4,7 +4,7 @@ Ethreum pre-sale wallet importer.
 
 | Branch     | Unit Tests |
 |------------|------------|
-| master     | TODO       |
+| master     | [![Build Status](https://travis-ci.org/krakenfx/swoop.svg)](https://travis-ci.org/krakenfx/swoop) |
 
 ![Swoop](https://github.com/krakenfx/swoop/raw/master/logo.png)
 
