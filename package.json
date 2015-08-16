@@ -10,7 +10,7 @@
     "dev": "([ -d build/dev ] && rm build/dev/*) ; babel-node node_modules/.bin/webpack --config webpack/dev.config.js",
     "prod": "([ -d build/prod ] && rm build/prod/*) ; babel-node node_modules/.bin/webpack --config webpack/prod.config.js",
     "integration": "babel-node node_modules/.bin/webpack --config webpack/test.config.js && cat build/integration.js | tape-run",
-    "cryptojs": "[ -d vendor/cryptojs ] || (mkdir -p vendor/cryptojs ; curl https://crypto-js.googlecode.com/files/CryptoJS%20v3.1.2.zip | bsdtar -xf- -C vendor/cryptojs)",
+    "cryptojs": "[ -d vendor/cryptojs ] || (mkdir -p vendor/cryptojs ; curl 'https://crypto-js.googlecode.com/files/CryptoJS%20v3.1.2.zip' | bsdtar -xf- -C vendor/cryptojs)",
     "install": "npm run cryptojs"
   },
   "author": "Andreas Brekken <andreas@kraken.com>",
