@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "0.12"
+  - "0.11"
+  - "0.10"
+  - "iojs"
+env:
+  - GETH_RPC_URL="https://geth.kraken.com:2096"
+  - KRAKEN_ADDRESS="2910543af39aba0cd09dbb2d50200b3e800a63d2"
