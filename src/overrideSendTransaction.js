@@ -3,8 +3,8 @@ import web3 from 'web3';
 import lodash from 'lodash';
 import Tx from 'ethereumjs-tx';
 const debug = console.log.bind(console);
-import txToRaw from './txToRaw';
 
+const GAS_FOR_TRANSACTION = 21000;
 
 export function sendTransactionWithKey(tx, privKey, callback) {
   debug(`transaction: ${JSON.stringify(tx, null, 4)}`);
@@ -15,20 +15,19 @@ export function sendTransactionWithKey(tx, privKey, callback) {
     debug(`got nonce, ${nonce}`);
 
     debug('looking up current gas price...');
-    web3.eth.getGasPrice((innerErr, currentGasPrice) => {
+    web3.eth.getGasPrice((innerErr, gasPrice) => {
       if (innerErr) { return callback(innerErr); }
 
-      debug(`current gas price is ${currentGasPrice}`);
+      const txValues = {
+        nonce,
+        value: web3.toHex(tx.value),
+        to: web3.toHex(tx.to),
+        gasPrice: web3.toHex(gasPrice),
+        gasLimit: web3.toHex(GAS_FOR_TRANSACTION),
+      };
 
-      // const gasLimit = '200000';
-      // const gasPrice = +currentGasPrice ? currentGasPrice : '10000';
-      const gasPrice = '0x110c8f7d8de';
-      const gasLimit = `0x${(22000).toString(16)}`;
+      const txToSign = new Tx(txValues);
 
-      const rawTx = txToRaw({ ...tx, nonce, gasPrice, gasLimit });
-      debug(`raw transaction: ${JSON.stringify(rawTx, null, 4)}`);
-
-      const txToSign = new Tx(rawTx);
       txToSign.sign(privKey);
 
       const serializedTx = '0x' + txToSign.serialize().toString('hex');
