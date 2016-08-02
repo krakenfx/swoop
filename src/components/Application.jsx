@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import LoadWallet from './LoadWallet';
 import WalletPassword from './WalletPassword';
 import EnterAmount from './EnterAmount';
-import EnterTag from './EnterTag';
 import web3 from 'web3';
+import EnterAddress from './EnterAddress';
 import overrideSendTransaction from '../overrideSendTransaction';
 import Stage from './Stage';
 import Sent from './Sent';
@@ -42,7 +42,7 @@ export default class Application extends Component {
   onEnterAmount = (amount) => {
     this.setState({
       amount,
-      stage: 'tag',
+      stage: 'address',
     });
   }
 
@@ -88,8 +88,8 @@ export default class Application extends Component {
           <Stage number="3" active={this.state.stage === 'amount'} ref="amount-stage">
             <EnterAmount onAmount={this.onEnterAmount} address={this.state.originalWallet && this.state.originalWallet.ethaddr} />
           </Stage>
-          <Stage number="4" active={this.state.stage === 'tag'} ref="tag-stage">
-            <EnterTag amount={this.state.amount} onSent={this.onSent} wallet={this.state.wallet} />
+          <Stage number="4" active={this.state.stage === 'address'} ref="address-stage">
+            <EnterAddress amount={this.state.amount} onSent={this.onSent} wallet={this.state.wallet} />
           </Stage>
           {this.state.stage === 'sent' && <Stage active={this.state.stage === 'sent'} ref="sent-stage">
             <Sent hash={this.state.hash} />

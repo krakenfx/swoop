@@ -1,13 +1,9 @@
-/* global KRAKEN_ADDRESS */
 // From https://github.com/SilentCicero/ethereumjs-accounts/blob/master/index.js#L547
 import web3 from 'web3';
 import lodash from 'lodash';
 import Tx from 'ethereumjs-tx';
 const debug = console.log.bind(console);
 import txToRaw from './txToRaw';
-
-import Icap from 'web3/lib/web3/icap';
-Icap.prototype.insitution = Icap.prototype.institution;
 
 
 export function sendTransactionWithKey(tx, privKey, callback) {
@@ -26,12 +22,10 @@ export function sendTransactionWithKey(tx, privKey, callback) {
 
       // const gasLimit = '200000';
       // const gasPrice = +currentGasPrice ? currentGasPrice : '10000';
-      const to = `0x${KRAKEN_ADDRESS}`;
-
       const gasPrice = '0x110c8f7d8de';
       const gasLimit = `0x${(22000).toString(16)}`;
 
-      const rawTx = txToRaw({ ...tx, nonce, gasPrice, gasLimit, to });
+      const rawTx = txToRaw({ ...tx, nonce, gasPrice, gasLimit });
       debug(`raw transaction: ${JSON.stringify(rawTx, null, 4)}`);
 
       const txToSign = new Tx(rawTx);
