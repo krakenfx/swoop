@@ -18,7 +18,6 @@ git clone https://github.com/krakenfx/swoop.git
 
 ```
 GETH_RPC_URL=https://geth.kraken.com:2096 \
-KRAKEN_ADDRESS=2910543af39aba0cd09dbb2d50200b3e800a63d2 \
 npm run hot
 ```
 
@@ -30,7 +29,6 @@ And open your browser to `http://localhost:8080`
 
 ```
 GETH_RPC_URL=https://geth.kraken.com:2096 \
-KRAKEN_ADDRESS=2910543af39aba0cd09dbb2d50200b3e800a63d2 \
 npm run hot
 ```
 
@@ -38,7 +36,6 @@ npm run hot
 
 ```
 GETH_RPC_URL=https://geth.kraken.com:2096 \
-KRAKEN_ADDRESS=2910543af39aba0cd09dbb2d50200b3e800a63d2 \
 npm run dev
 ```
 
@@ -46,7 +43,6 @@ npm run dev
 
 ```
 GETH_RPC_URL=https://geth.kraken.com:2096 \
-KRAKEN_ADDRESS=2910543af39aba0cd09dbb2d50200b3e800a63d2 \
 npm run prod
 ```
 

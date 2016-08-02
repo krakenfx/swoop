@@ -1,11 +1,11 @@
 import React, { PropTypes, Component } from 'react';
 import deposit from '../../src/deposit';
 
-function isTagValid(tag) {
-  return !!tag.match(/^([A-Z0-9]{11})?[A-Z0-9]{9}$/);
+function isAddressValid(address) {
+  return !!address.match(/^0x[a-fA-F0-9]{40}$/);
 }
 
-export default class EnterTag extends Component {
+export default class EnterAddress extends Component {
   static propTypes = {
     onSent: PropTypes.func.isRequired,
     wallet: PropTypes.object,
@@ -15,18 +15,18 @@ export default class EnterTag extends Component {
   onSubmit = (event) => {
     event.preventDefault();
 
-    const { tag } = this.state;
+    const { address } = this.state;
 
-    if (!isTagValid(tag)) {
+    if (!isAddressValid(address)) {
       this.setState({
-        error: 'Invalid account id',
+        error: 'Invalid deposit address',
       });
       return;
     }
 
     deposit(
       this.props.wallet.address,
-      tag,
+      address,
       this.props.amount,
       (err, hash) => {
         if (err) {
@@ -41,16 +41,17 @@ export default class EnterTag extends Component {
   render() {
     return (
       <form className="decrypt-wallet" onSubmit={this.onSubmit}>
-        <div className="enter-tag">
-          <label>Enter account id</label>
+        <div className="enter-address">
+          <label>Enter deposit address</label>
           <p className="semi_info">
             You can find this under Funding, Deposit, Ether
-            on <a href="https://kraken.com">kraken.com</a>
+            on <a href="https://kraken.com">kraken.com</a>. (Starts with <strong>0x</strong>)
           </p>
           <input
             type="text"
-            value={this.state.tag}
-            onChange={e => this.setState({ tag: e.target.value, error: null })}
+            value={this.state.address}
+            style={{ width: '24em' }}
+            onChange={e => this.setState({ address: e.target.value, error: null })}
           />
         </div>
         <button className="button" type="submit">Deposit to Kraken</button>
@@ -60,6 +61,6 @@ export default class EnterTag extends Component {
   }
 
   state = {
-    tag: '',
+    address: '',
   }
 }

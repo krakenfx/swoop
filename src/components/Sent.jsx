@@ -31,7 +31,7 @@ export default class Sent extends Component {
         </label>
 
         <p className="semi_info">
-          Your deposit will be available on Kraken in around 24 hours. The link below will work
+          Your deposit will be available on Kraken in a few minutes. The link below will work
           in around 30 seconds.
         </p>
 

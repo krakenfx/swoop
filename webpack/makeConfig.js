@@ -51,7 +51,6 @@ module.exports = function(options) {
 		}),
 		new webpack.DefinePlugin({
 			GETH_RPC_URL: `"${options.gethRpcUrl || process.env.GETH_RPC_URL}"`,
-			KRAKEN_ADDRESS: `"${options.krakenAddress || process.env.KRAKEN_ADDRESS}"`,
 		}),
 	];
 
