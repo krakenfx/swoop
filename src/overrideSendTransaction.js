@@ -10,7 +10,7 @@ export function sendTransactionWithKey(tx, privKey, callback) {
   debug(`transaction: ${JSON.stringify(tx, null, 4)}`);
   debug(`fetching transaction count for ${tx.from}...`);
 
-  web3.eth.getTransactionCount(tx.from, (err, nonce) => {
+  web3.eth.getTransactionCount(`0x${tx.from}`, (err, nonce) => {
     if (err) { return callback(err); }
     debug(`got nonce, ${nonce}`);
 
